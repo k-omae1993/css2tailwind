@@ -10,6 +10,16 @@
     "plugin:tailwindcss/recommended"
   ],
   "ignorePatterns": ["*.config.js"],
+  // Unable to resolve path to module '~/img/demo.png'が出るので、
+  // 以下の設定を追加
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["~", "./path/to/root/directory"]],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".png"] // 使用する拡張子を追加してください
+      }
+    }
+  },
   "rules": {
     "import/order": [
       "error",

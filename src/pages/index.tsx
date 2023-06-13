@@ -1,23 +1,23 @@
-import { CssToTailwindTranslator } from 'css-to-tailwind-translator';
-import { Inter } from 'next/font/google';
-import Head from 'next/head';
 import Image from 'next/image';
-
-const inter = Inter({ subsets: ['latin'] });
+import Link from 'next/link';
+import DemoImage from '~/img/demo.png';
 
 export default function Home() {
-  const cssCode = `.test {
-  width: 100%;
-  height: 50%;
-  margin: 0 !important;
-  background-color: transparent;
-}
-`;
-
-  const conversionResult = CssToTailwindTranslator(cssCode);
-
-  console.log(conversionResult);
   return (
-    <div className='text-ellipsis py-3  pt-8 font-bold'>{conversionResult.data[0].resultVal}</div>
+    <div className='h-screen w-screen bg-gray-300 py-80'>
+      <h2 className='flex items-center justify-center gap-1 text-5xl font-semibold tracking-wider text-gray-600'>
+        <span>CSS</span>
+        <span className=' mx-2 text-7xl'>2</span>
+        <span>TailwindCSS</span>
+      </h2>
+      <Image src={DemoImage} alt='' width={1200} height={400} className='mx-auto my-8 rounded-md' />
+      <div className='text-center'>
+        <Link href='/transformation'>
+          <button className='rounded bg-sky-600 px-3 py-2 text-2xl  tracking-wider text-white hover:opacity-75'>
+            Get Started
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 }
